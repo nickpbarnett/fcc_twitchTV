@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Nick's Twitch.tv app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://use.fontawesome.com/0c0c22797e.js"></script>
+
+  <link rel= "stylesheet" type= "text/css" href= "./css/style.css">
+  <script>
+
+
+  myArray=["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]; 
+
+  var len  = myArray.length;
+
+    for (let i=0; i<len; i++){
+      let streamer=myArray[i];
+
+      url=' https://wind-bow.glitch.me/twitch-api/streams/'+streamer+'?callback=?';
+
+      $.ajax({
+
+          url: url,
+          dataType: "jsonp",
+     
+          success: function(data) {
+            let url2='https://www.twitch.tv/'+streamer;
+            if(data.stream){
+              streaming= "<a href='"+url2+"'>"+streamer+"</a>"+" "+data.stream.game+": "+data.stream.channel.status;
+              $("#output").after("<div class='green'>"+streaming+"</div>");
+            }else{
+              streaming= "<a href='"+url2+"'>"+streamer+"</a>: offline";
+              $("#output").after("<div class='red'>"+streaming+"</div>");
+            }// end if statement        
+          } //end success
+      }); // end ajax
+    }; //end of for loop
+
+  </script>
+</head>
+
+<body>
+  <div class="container text-center">
+    <div class="jumbotron">
+
+      <h1>Nick's Twitch.tv App</h1>
+      <Br>
+      <div id="output" class="item">
+
+
+      </div> <!--  end #output -->
+
+
+
+    </div> <!-- end .jumbotron -->
+
+  </div> <!-- end .container -->
+
+</body>
+
+</html>
+

@@ -1,0 +1,35 @@
+body{
+	padding: 25px;
+}
+
+
+.jumbotron{
+background: #ad5389;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	color: #d9bbed;
+}
+
+
+h1{
+	color:#fff !important;
+}
+
+.green{
+	background-color: #0f0;
+	color:#fff;
+	padding:20px;
+	margin:10px;
+}
+
+.red{
+	background-color: #f00;
+	color:#fff;
+	padding:20px;
+	margin:10px;
+
+
+}
+
+
